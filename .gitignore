@@ -28,3 +28,6 @@ config/secrets.yml
 
 # rubymiiiiiine
 .idea/
+
+# stupid mac
+.DS_Store
