@@ -1,6 +1,12 @@
 Zoowedding::Application.routes.draw do
   root 'static_pages#home'
 
+  get '/lodging' => 'static_pages#lodging'
+  get '/transport' => 'static_pages#transport'
+  get '/events' => 'static_pages#events'
+  get '/registries' => 'static_pages#registries'
+  get '/faq' => 'static_pages#faq'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

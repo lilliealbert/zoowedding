@@ -1,0 +1,48 @@
+@media (min-width: $screen-xs-min) {
+  .page-content {
+    margin: 20px;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px 30px;
+  }
+
+  body {
+    background: url(lemur_near_stick_brianbsorensen.jpg) no-repeat center center fixed;
+    a {
+      color: #0068C2;
+      &:hover {
+        color: #003868;
+      }
+    }
+  }
+
+  #nav {
+    border: none;
+    border-radius: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    li {
+      font-size: 1.4em;
+      a {
+        color: rgb(51, 51, 51);
+        &:hover {
+          background: transparent;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  //home page styles just for desktop
+  .invite {
+    color: #e4e4e4;
+    h1 {
+      font-size: 4em;
+    }
+  }
+
+  .details {
+    margin-top: 50%;
+  }
+}
+

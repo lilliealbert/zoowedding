@@ -1,0 +1,41 @@
+//home
+
+.clear-background {
+  background-color: transparent;
+}
+
+.invite {
+  h4 {
+    font-style: italic;
+  }
+  h2 {
+    margin: 0;
+  }
+}
+
+.when {
+  margin-top: 30px;
+}
+
+//events
+
+.events {
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.day {
+  .event:first-of-type {
+    margin-top: 10px;
+  }
+}
+
+.event {
+  margin: 20px 0;
+  h4 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin: 0;
+  }
+}

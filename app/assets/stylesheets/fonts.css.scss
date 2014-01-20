@@ -1,0 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Vollkorn:400italic,400,700);
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,700);
+
+h1, h2, h3, h4 {
+  font-family: 'Vollkorn', serif;
+}
+
+h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+}
+
+h3 {
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+p, li {
+  font-size: 1.2em;
+  font-family: 'Roboto', sans-serif;
+}
+
+#nav {
+  li {
+    font-family: 'Vollkorn', serif;
+  }
+}
