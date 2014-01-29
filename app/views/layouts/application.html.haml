@@ -1,12 +1,14 @@
 !!!
 %html
-%head
-%title zoo wedding dot biz
-%meta{ name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1" }
-= stylesheet_link_tag    "application", media: "all"
-= javascript_include_tag "application"
-= csrf_meta_tags
-%body
-= render 'shared/nav'
-.page-content{class: "#{content_for(:container_class) || ''}"}
-  = yield
+  %head
+    %title zoo wedding dot biz
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1, maximum-scale=1" }
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+  = render 'shared/nav'
+  .page-content{class: "#{content_for(:container_class) || ''}"}
+    = yield
+  %script{:type=>"text/javascript"}
+    $.backstretch("#{ asset_path 'lemur_near_stick_brianbsorensen.jpg' }");

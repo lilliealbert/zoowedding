@@ -1,29 +1,31 @@
 @media (max-width: $screen-xs-min) {
-  body {
-    color: rgb(51, 51, 51);
-  }
   #nav {
     margin-left: 15px;
     margin-bottom: 0;
     li {
       display: inline-block;
       a {
+        color: white;
         padding: 5px 8px;
-        color: rgb(51, 51, 51);
+        &:hover {
+          color: grey;
+        }
       }
     }
-
   }
 
   .page-content {
-    padding: 0 5px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 5px;
   }
 
   .invite {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 10px;
     h1, h2 {
       padding: 10px 0;
-      color: rgb(51, 51, 51);
       margin: 0;
+      color: #343434;
     }
   }
 }
