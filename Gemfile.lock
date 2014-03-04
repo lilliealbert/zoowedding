@@ -79,6 +79,7 @@ GEM
     mini_portile (0.5.2)
     minitest (4.7.5)
     multi_json (1.8.4)
+    newrelic_rpm (3.7.2.195)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     pg (0.17.0)
@@ -159,6 +160,7 @@ DEPENDENCIES
   faker
   haml-rails
   jquery-rails
+  newrelic_rpm
   pg
   quiet_assets
   rails (= 4.0.0)

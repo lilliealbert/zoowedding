@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'pg'
 gem 'bootstrap-sass-rails'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'better_errors'
