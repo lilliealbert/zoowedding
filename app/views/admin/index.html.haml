@@ -1,0 +1,10 @@
+%h2 Totals
+%ul.list-unstyled
+  %li Invited guests: #{@guests.count}
+  %li RSVPs
+  %ul
+    %li Wedding: #{@rsvps.yeses.wedding.count} yes / #{@rsvps.nos.wedding.count} no
+    %li Rehearsal Dinner: #{@rsvps.yeses.rehearsal.count} yes / #{@rsvps.nos.rehearsal.count} no
+    %li Sunday brunch: #{@rsvps.yeses.brunch.count} yes / #{@rsvps.nos.brunch.count} no
+
+= render "rsvps_table"

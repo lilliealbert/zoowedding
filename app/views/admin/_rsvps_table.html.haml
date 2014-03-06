@@ -1,0 +1,9 @@
+%h3 Guests
+%table.table
+  %tr
+    %th Guest Name
+    %th Guest Email
+  - @guests.each do |guest|
+    %tr
+      %td= guest.name
+      %td= guest.email
