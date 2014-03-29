@@ -9,6 +9,9 @@
   %body
   = render 'shared/nav'
   .page-content{class: "#{content_for(:container_class) || ''}"}
+    - flash.each do |name, msg|
+      %div{class: "alert alert-#{name}"}
+        = msg
     = yield
   %script{:type=>"text/javascript"}
     $.backstretch("#{ asset_path 'lemur_near_stick_brianbsorensen.jpg' }");

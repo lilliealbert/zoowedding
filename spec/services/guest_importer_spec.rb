@@ -41,6 +41,16 @@ describe GuestImporter do
         expect(rsvps.first.event_id).to eq(wedding.id)
         expect(rsvps.last.event_id).to eq(brunch.id)
       end
+
+      context "when adding a guest again" do
+        before do
+          subject
+        end
+
+        it "is idempotent" do
+          expect { subject }.not_to change{Rsvp.count}
+        end
+      end
     end
   end
 end

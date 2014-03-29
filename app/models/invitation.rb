@@ -6,6 +6,10 @@ class Invitation < ActiveRecord::Base
   has_many :rsvps
 
   validates :name, uniqueness: true
+
+  accepts_nested_attributes_for :guests, allow_destroy: true
+  accepts_nested_attributes_for :rsvps
+
   private
 
   def set_external_id

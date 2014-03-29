@@ -9,6 +9,9 @@ Zoowedding::Application.routes.draw do
 
   get '/admin' => 'admin#index'
 
+  get 'invitations/:external_id' => 'invitations#edit', as: "secretive"
+  resources :invitations
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

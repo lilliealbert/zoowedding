@@ -1,0 +1,30 @@
+.btn {
+  margin-top: 15px;
+}
+
+input[type=text] {
+  margin-top: 10px;
+  width: 180px;
+}
+
+.btn-primary {
+  background: #407212;
+  border: none;
+  &:hover {
+    background: #345218;
+  }
+}
+
+.btn-warning {
+  background: #611D01;
+  border: none;
+  &:hover {
+    background: #4B1600;
+  }
+}
+
+.guests {
+  label {
+    font-style: italic;
+  }
+}

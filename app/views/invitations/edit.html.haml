@@ -1,0 +1,28 @@
+%h2 Travis and Lillie are getting married!
+
+%h3 Which events will you be joining us for?
+
+= form_for @invitation do |f|
+  = f.fields_for :rsvps do |ff|
+    - event_title = ff.object.event.title
+    .checkbox
+      = ff.label :attending do
+        = ff.check_box :attending
+        = event_description(event_title)
+  .guests
+    %h3 Who's coming?
+    %em.small Update names as needed
+
+    = f.fields_for :guests do |ff|
+      #guest_name_field
+        = ff.text_field :name, class: "guest_name"
+        = ff.label :_destroy, class: "remove_#{ff.object.id}" do
+          = ff.check_box :_destroy, class: "remove_#{ff.object.id}"
+          Remove from RSVP
+
+  = f.submit "Yes! See you soon!", class: "button btn btn-primary"
+
+= form_for @invitation do |f|
+  = f.fields_for :rsvps do |ff|
+    = ff.hidden_field :attending, value: 0
+  = f.submit "Shoot, we can't make it at all.", class: "button btn btn-warning"
