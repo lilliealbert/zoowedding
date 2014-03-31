@@ -2,6 +2,7 @@ class InvitationsController < ApplicationController
   before_filter :load_invitation, only: :edit
 
   def edit
+    session[:external_id] = params[:external_id]
   end
 
   def update

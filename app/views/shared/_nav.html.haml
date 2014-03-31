@@ -1,9 +1,13 @@
 %nav.navbar#nav{role: "navigation"}
   .navbar-header
-    %ul.nav.navbar-nav
+    %ul.nav.navbar-nav.pull-left
       %li= link_to "Home", root_path
       %li= link_to "Where to Stay", lodging_path
       %li= link_to "Transportation", transport_path
       %li= link_to "Events", events_path
       %li= link_to "Registries", registries_path
       %li= link_to "FAQ", faq_path
+  - if session[:external_id]
+    %ul.nav.navbar-nav.pull-right
+      %li= link_to "Your RSVP", secretive_path(session[:external_id])
+
