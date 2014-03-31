@@ -1,4 +1,7 @@
-%h2 Totals
+%h2 WELCOME TO ADMIN LAND
+%p You must be getting married.
+
+%h3 Totals
 %ul.list-unstyled
   %li Invited guests: #{@guests.count}
   %li RSVPs
@@ -8,3 +11,5 @@
     %li Sunday brunch: #{@rsvps.yeses.brunch.count} yes / #{@rsvps.nos.brunch.count} no
 
 = render "rsvps_table"
+
+= button_to "Send invitations", send_invitations_path, class: "btn btn-primary", data: { confirm: "Really?" }

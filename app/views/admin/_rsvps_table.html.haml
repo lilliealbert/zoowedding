@@ -3,7 +3,9 @@
   %tr
     %th Guest Name
     %th Guest Email
+    %th Secret Code
   - @guests.each do |guest|
     %tr
       %td= guest.name
       %td= guest.email
+      %td= link_to guest.invitation.external_id, secretive_path(guest.invitation.external_id)
