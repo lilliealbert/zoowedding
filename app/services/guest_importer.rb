@@ -11,6 +11,7 @@ class GuestImporter
   end
 
   def import
+    make_events
     @guests.each do |guest_details|
       guest = Guest.create(
         name: guest_details[:name],
@@ -32,8 +33,14 @@ class GuestImporter
   def make_rsvps(guest, guest_details)
     events = guest_details[:events].split
     events.each do |event_name|
-      event = Event.find_or_create_by(title: event_name)
+      event = Event.find_by(title: event_name)
       Rsvp.where(invitation_id: guest.invitation.id, event_id: event.id).first_or_create
+    end
+  end
+
+  def make_events
+    Event::TITLES.each do |event_title|
+      Event.find_or_create_by(title: event_title)
     end
   end
 end
