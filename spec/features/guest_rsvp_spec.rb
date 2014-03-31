@@ -18,7 +18,7 @@ describe "rsvping to the wedding" do
     check("Picnic Brunch")
     click_button("Yes! See you soon")
 
-    expect(page).to have_content "Thanks for your RSVP!"
+    expect(page).to have_content "Thank you for RSVPing!"
     expect(wedding_rsvp.reload.attending).to be_true
     expect(brunch_rsvp.reload.attending).to be_true
   end
