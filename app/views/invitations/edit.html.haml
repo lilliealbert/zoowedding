@@ -1,14 +1,20 @@
+- if @invitation.is_coming?
+  %p Thank you for RSVPing! We're so excited to see you. Check out the #{ link_to "FAQs", faq_path } and our recommendations for #{ link_to "lodging", lodging_path } and #{ link_to "transit", transport_path } options.
+
 %h2 Travis and Lillie are getting married!
 
 %h3 Which events will you be joining us for?
+%em.small Check the box next to each event you'll be at.
+
 
 = form_for @invitation do |f|
-  = f.fields_for :rsvps do |ff|
-    - event_title = ff.object.event.title
-    .checkbox
-      = ff.label :attending do
-        = ff.check_box :attending
-        = event_description(event_title)
+  .rsvp_checkboxes
+    = f.fields_for :rsvps do |ff|
+      - event_title = ff.object.event.title
+      .checkbox
+        = ff.label :attending do
+          = ff.check_box :attending
+          = event_description(event_title)
   .guests
     %h3 Who's coming?
     %em.small Update names as needed
@@ -20,7 +26,8 @@
           = ff.check_box :_destroy, class: "remove_#{ff.object.id}"
           Remove from RSVP
 
-  = f.submit "Yes! See you soon!", class: "button btn btn-primary"
+  .rsvp-submit-wrapper
+    = f.submit "Yes! See you soon!", class: "button btn btn-primary rsvp-yes"
 
 = form_for @invitation do |f|
   = f.fields_for :rsvps do |ff|

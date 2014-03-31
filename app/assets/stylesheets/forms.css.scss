@@ -13,6 +13,9 @@ input[type=text] {
   &:hover {
     background: #345218;
   }
+  &:disabled {
+    background: #999;
+  }
 }
 
 .btn-warning {
