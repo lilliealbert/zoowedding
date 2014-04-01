@@ -6,6 +6,7 @@ class AdminController < ApplicationController
   def index
     @guests = Guest.includes(:invitation).order("invitations.name")
     @rsvps = Rsvp.all
+    @invitations = Invitation.all
   end
 
   def send_invitations
