@@ -1,12 +1,11 @@
 class AdminController < ApplicationController
   http_basic_authenticate_with name: ENV["ADMIN_USERNAME"], password: ENV["ADMIN_PASSWORD"]
 
-  before_action :load_guests, :load_rsvps
+  before_action :load_guests, :load_rsvps, :load_invitations
 
   def index
     @guests = Guest.includes(:invitation).order("invitations.name")
     @rsvps = Rsvp.all
-    @invitations = Invitation.all
   end
 
   def send_invitations
@@ -23,5 +22,9 @@ class AdminController < ApplicationController
 
   def load_rsvps
     @rsvps = Rsvp.all
+  end
+
+  def load_invitations
+    @invitations = Invitation.all
   end
 end
