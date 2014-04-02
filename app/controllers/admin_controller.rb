@@ -4,8 +4,6 @@ class AdminController < ApplicationController
   before_action :load_guests, :load_rsvps, :load_invitations
 
   def index
-    @guests = Guest.includes(:invitation).order("invitations.name")
-    @rsvps = Rsvp.all
   end
 
   def send_invitations
@@ -25,6 +23,6 @@ class AdminController < ApplicationController
   end
 
   def load_invitations
-    @invitations = Invitation.all
+    @invitations = Invitation.includes(:guests)
   end
 end

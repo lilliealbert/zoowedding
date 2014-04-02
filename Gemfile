@@ -9,6 +9,7 @@ gem 'haml-rails'
 gem 'pg'
 gem 'bootstrap-sass-rails'
 gem 'newrelic_rpm'
+gem 'jquery-datatables-rails'
 
 group :development do
   gem 'better_errors'

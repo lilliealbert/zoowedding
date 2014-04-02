@@ -1,11 +1,21 @@
 %h3 Guests
-%table.table
-  %tr
-    %th Guest Name
-    %th Guest Email
-    %th Secret Code
-  - @guests.each do |guest|
+%table.table.datatable
+  %thead
     %tr
-      %td= guest.name
-      %td= guest.email
-      %td= link_to guest.invitation.external_id, secretive_path(guest.invitation.external_id)
+      %th Guest Names
+      %th.small-column Guest Emails
+      %th.medium-column Invite Link
+      %th Category
+      %th.medium-column Zoo Walk?
+      %th.medium-column Wedding?
+      %th.medium-column Brunch?
+  %tbody
+    - @invitations.each do |invitation|
+      %tr
+        %td= invitation.guests.pluck(:name).join(", ")
+        %td= invitation.guests.pluck(:email).join(", ")
+        %td= link_to "Invitation", secretive_path(invitation.external_id)
+        %td= invitation.guests.first.relationship_type
+        %td= event_rsvp(invitation, "zoo_walk")
+        %td= event_rsvp(invitation, "wedding")
+        %td= event_rsvp(invitation, "brunch")
