@@ -1,4 +1,5 @@
 class Invitation < ActiveRecord::Base
+  include ActiveModel::Validations
 
   after_create :set_external_id
 
@@ -6,6 +7,7 @@ class Invitation < ActiveRecord::Base
   has_many :rsvps, -> { order(event_id: :asc) }
 
   validates :name, uniqueness: true
+  validates_with InvitationValidator
 
   accepts_nested_attributes_for :guests, allow_destroy: true
   accepts_nested_attributes_for :rsvps
