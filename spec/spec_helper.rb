@@ -9,4 +9,5 @@ RSpec.configure do |config|
   config.mock_with :rspec
   config.use_transactional_fixtures = true
   config.include FactoryGirl::Syntax::Methods
+  config.before(:each) { ActionMailer::Base.deliveries.clear }
 end

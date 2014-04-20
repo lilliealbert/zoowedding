@@ -9,7 +9,13 @@ class AdminController < ApplicationController
   def send_invitations
     InvitationSender.send_invitations
     flash[:success] = "Invitations sent!"
-    render :index
+    redirect_to admin_path
+  end
+
+  def send_reminders
+    InvitationSender.send_reminders
+    flash[:success] = "Reminders sent, probably!"
+    redirect_to admin_path
   end
 
   private

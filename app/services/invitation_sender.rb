@@ -8,4 +8,13 @@ class InvitationSender
       end
     end
   end
+
+  def self.send_reminders
+    invitations_without_rsvps = Invitation.all.map do |i|
+      i if i.rsvps.pluck(:attending).compact.empty?
+    end
+    invitations_without_rsvps.compact.each do |invitation|
+      InvitationMailer.reminder(invitation).deliver
+    end
+  end
 end

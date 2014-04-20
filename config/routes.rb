@@ -8,7 +8,8 @@ Zoowedding::Application.routes.draw do
   get '/faq' => 'static_pages#faq'
 
   get '/admin' => 'admin#index'
-  post '/admin' => 'admin#send_invitations', as: "send_invitations"
+  post '/send_invitations' => 'admin#send_invitations', as: "send_invitations"
+  post '/send_reminders' => 'admin#send_reminders', as: "send_reminders"
 
   get 'invitations/:external_id' => 'invitations#edit', as: "secretive"
   resources :invitations
