@@ -4,6 +4,7 @@ class Rsvp < ActiveRecord::Base
 
   scope :yeses, -> { where(attending: true) }
   scope :nos, -> { where(attending: false) }
+  scope :missing, -> { where(attending: nil) }
 
   scope :wedding, -> { joins(:event).where(events: { title: "wedding" }) }
   scope :rehearsal_dinner, -> { joins(:event).where(events: { title: "rehearsal_dinner" }) }

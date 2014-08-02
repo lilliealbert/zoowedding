@@ -17,4 +17,13 @@ class InvitationMailer < ActionMailer::Base
       subject: "Don't forget to RSVP for this zoo wedding"
     )
   end
+
+  def shuttle(invitation)
+    @invitation = invitation
+    mail(
+      to: invitation.guests.pluck(:email),
+      from: 'Lillie & Travis <lillie.chilen@gmail.com>',
+      subject: "Zoo wedding logistics: want a ride back from the zoo?"
+    )
+  end
 end

@@ -18,6 +18,12 @@ class AdminController < ApplicationController
     redirect_to admin_path
   end
 
+  def send_shuttle
+    InvitationSender.send_shuttle
+    flash[:success] = "Shuttle emails sent, probably!"
+    redirect_to admin_path
+  end
+
   private
 
   def load_guests

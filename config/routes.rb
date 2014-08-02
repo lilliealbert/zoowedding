@@ -10,6 +10,7 @@ Zoowedding::Application.routes.draw do
   get '/admin' => 'admin#index'
   post '/send_invitations' => 'admin#send_invitations', as: "send_invitations"
   post '/send_reminders' => 'admin#send_reminders', as: "send_reminders"
+  post '/send_shuttle' => 'admin#send_shuttle', as: "send_shuttle"
 
   get 'invitations/:external_id' => 'invitations#edit', as: "secretive"
   get 'invitations/:external_id/shuttle/new' => 'shuttle#new', as: "secretive_shuttle"

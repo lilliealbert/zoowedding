@@ -17,4 +17,12 @@ class InvitationSender
       InvitationMailer.reminder(invitation).deliver
     end
   end
+
+  def self.send_shuttle
+    yes_and_missing_wedding_invitations = (Rsvp.wedding.yeses + Rsvp.wedding.missing).map(&:invitation)
+
+    yes_and_missing_wedding_invitations.each do |invitation|
+      InvitationMailer.shuttle(invitation).deliver
+    end
+  end
 end
