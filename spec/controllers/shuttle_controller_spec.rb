@@ -26,7 +26,7 @@ describe ShuttleController do
 
       it "sets the flash message" do
         subject
-        expect(flash[:message]).to eq "Great, thanks for letting us know!"
+        expect(flash[:success]).to eq "Great, thanks for letting us know!"
       end
 
       it "redirects to root" do
