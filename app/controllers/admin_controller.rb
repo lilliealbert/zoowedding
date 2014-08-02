@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  http_basic_authenticate_with name: ENV["ADMIN_USERNAME"], password: ENV["ADMIN_PASSWORD"]
+  http_basic_authenticate_with name: ENV["ADMIN_USERNAME"], password: ENV["ADMIN_PASSWORD"] unless Rails.env.development?
 
   before_action :load_guests, :load_rsvps, :load_invitations
 
