@@ -7,6 +7,7 @@
 %ul.list-unstyled
   %li Invited guests: #{@guests.count}
   %li Total invitations: #{@invitations.count}
+  %li Total shuttle takers: #{Invitation.where(shuttle: true).map(&:guests).map(&:length).sum}
   %li <b>Invitation RSVPs</b>
   %ul
     %li Rehearsal Dinner: #{yes_event_guest_count(:rehearsal_dinner)} yes / #{nos_event_guest_count(:rehearsal_dinner)} no (out of #{total_event_guest_count(:rehearsal_dinner)} guests)
