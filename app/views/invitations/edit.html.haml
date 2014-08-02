@@ -4,7 +4,7 @@
 %h2 Travis and Lillie are getting married!
 
 %h3 Which events will you be joining us for?
-%em.small Check the box next to each event you'll be at.
+%em Check the box next to each event you'll be at.
 
 
 = form_for @invitation do |f|
@@ -17,7 +17,7 @@
           = event_description(event_title)
   .guests
     %h3 Who's coming?
-    %em.small Update names as needed
+    %em Update names as needed
 
     = f.fields_for :guests do |ff|
       #guest_name_field
@@ -25,6 +25,18 @@
         = ff.label :_destroy, class: "remove_#{ff.object.id}" do
           = ff.check_box :_destroy, class: "remove_#{ff.object.id}"
           Remove from RSVP
+
+  %h3 Want to take the shuttle back after the reception?
+  %em
+    Since there probably won't be very many cabs around the Zoo at 11pm on a Saturday, we're hiring a shuttle to take guests back to 24th and Mission Bart station after the reception is over.
+  .control-group.mt-15
+    = f.label :shuttle_true do
+      = f.radio_button :shuttle, :true
+      Yes, we'd like to take the shuttle back
+  .control-group
+    = f.label :shuttle_false do
+      = f.radio_button :shuttle, :false
+      No, we'll find our own way home.
 
   .rsvp-submit-wrapper
     = f.submit "Yes! See you soon!", class: "button btn btn-primary rsvp-yes"

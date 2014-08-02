@@ -19,7 +19,7 @@ class InvitationsController < ApplicationController
   private
 
   def invitation_params
-    params.require(:invitation).permit(guests_attributes: [:name, :_destroy, :id], rsvps_attributes: [:attending, :id])
+    params.require(:invitation).permit(:shuttle, guests_attributes: [:name, :_destroy, :id], rsvps_attributes: [:attending, :id])
   end
 
   def load_invitation

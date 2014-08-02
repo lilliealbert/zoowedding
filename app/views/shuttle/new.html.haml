@@ -1,0 +1,17 @@
+%h1 Shuttle RSVP
+%em
+  Since there probably won't be very many cabs around the Zoo at 11pm on a Saturday, we're hiring a shuttle to take guests back to 24th and Mission Bart station after the reception is over.
+
+%p.mt-15 Will you be taking the shuttle from the Zoo back to the 24th & Mission Bart station? It will leave when the reception ends, around 11pm.
+
+= form_for @invitation, url: invitation_shuttle_index_url(@invitation), method: "POST", class: "form" do |f|
+  .control-group
+    = f.label :shuttle_true do
+      = f.radio_button :shuttle, :true
+      Yes, we'd like to take the shuttle back
+  .control-group
+    = f.label :shuttle_false do
+      = f.radio_button :shuttle, :false
+      No, we'll find our own way home
+  .control-group
+    = f.submit class: "btn btn-primary"

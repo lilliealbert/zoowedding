@@ -12,7 +12,11 @@ Zoowedding::Application.routes.draw do
   post '/send_reminders' => 'admin#send_reminders', as: "send_reminders"
 
   get 'invitations/:external_id' => 'invitations#edit', as: "secretive"
-  resources :invitations
+  get 'invitations/:external_id/shuttle/new' => 'shuttle#new', as: "secretive_shuttle"
+
+  resources :invitations do
+    resources :shuttle, only: :create
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
