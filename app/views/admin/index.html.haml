@@ -16,6 +16,7 @@
     %li Sunday brunch: #{yes_event_guest_count(:brunch)} yes / #{nos_event_guest_count(:brunch)} no (out of #{total_event_guest_count(:brunch)} guests)
 
 = link_to "Add a guest", new_guest_path, class: "btn btn-primary"
+= link_to "Download Guest CSV", guests_path(format: "csv"), class: "btn btn-primary"
 
 = render "rsvps_table"
 

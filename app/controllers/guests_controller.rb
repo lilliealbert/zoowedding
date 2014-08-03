@@ -3,6 +3,9 @@ class GuestsController < ApplicationController
 
   def index
     @guests = Guest.all
+    respond_to do |format|
+      format.csv { send_data @guests.to_csv }
+    end
   end
 
   def new
@@ -11,14 +14,14 @@ class GuestsController < ApplicationController
 
   def create
     invitation = Invitation.find_or_create_by(name: invitation_params[:name])
-    guest = invitation.guests.build(guest_params)
+    @guest = invitation.guests.build(guest_params)
 
-    if guest.save
+    if @guest.save
       create_rsvps(invitation) if invitation.rsvps.count < 3
-      flash[:success] = "Guest added with invitation name #{invitation.name} & relationship type #{guest.relationship_type}"
+      flash[:success] = "Guest added with invitation name #{invitation.name} & relationship type #{@guest.relationship_type}"
       redirect_to new_guest_path
     else
-      flash.now[:error] = "No such luck"
+      flash.now[:warning] = "No such luck"
       render :new
     end
   end
