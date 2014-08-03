@@ -8,12 +8,14 @@
   %li Invited guests: #{@guests.count}
   %li Total invitations: #{@invitations.count}
   %li Total shuttle takers: #{Invitation.where(shuttle: true).map(&:guests).map(&:length).sum}
-  %li <b>Invitation RSVPs</b>
+  %li.mt-15 <b>Invitation RSVPs</b>
   %ul
     %li Rehearsal Dinner: #{yes_event_guest_count(:rehearsal_dinner)} yes / #{nos_event_guest_count(:rehearsal_dinner)} no (out of #{total_event_guest_count(:rehearsal_dinner)} guests)
     %li Zoo Walk: #{yes_event_guest_count(:zoo_walk)} yes / #{nos_event_guest_count(:zoo_walk)} no (out of #{total_event_guest_count(:zoo_walk)} guests)
     %li Wedding: #{yes_event_guest_count(:wedding)} yes / #{nos_event_guest_count(:wedding)} no (out of #{total_event_guest_count(:wedding)} guests)
     %li Sunday brunch: #{yes_event_guest_count(:brunch)} yes / #{nos_event_guest_count(:brunch)} no (out of #{total_event_guest_count(:brunch)} guests)
+
+= link_to "Add a guest", new_guest_path, class: "btn btn-primary"
 
 = render "rsvps_table"
 

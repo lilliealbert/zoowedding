@@ -12,8 +12,8 @@
   %tbody
     - @invitations.each do |invitation|
       %tr
-        %td= invitation.guests.pluck(:name).join(", ")
-        %td= invitation.guests.pluck(:email).join(", ")
+        %td= invitation.guests.pluck(:name).to_sentence
+        %td= invitation.guests.pluck(:email).select(&:present?).to_sentence
         %td= link_to "Invitation", secretive_path(invitation.external_id)
         %td= invitation.guests.first.relationship_type
         %td= event_rsvp(invitation, "zoo_walk")

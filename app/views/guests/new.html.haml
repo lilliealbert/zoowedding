@@ -1,0 +1,27 @@
+%h1 Add a Guest
+
+%p Relationship Types:
+%p= Guest::RELATIONSHIP_TYPES.to_sentence
+
+= form_for @guest, html: { class: "form" } do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+
+  .form-group
+    = f.label :email
+    = f.text_field :email, class: "form-control"
+
+  .form-group
+    = f.label :relationship_type
+    = f.text_field :relationship_type, class: "form-control"
+
+  = fields_for :invitation do |ff|
+    .form-group
+      = ff.label :name, "Invitation name"
+      = ff.text_field :name, class: "form-control"
+
+  .form-group
+    = f.submit class: "btn btn-primary"
+
+
