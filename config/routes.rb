@@ -7,6 +7,8 @@ Zoowedding::Application.routes.draw do
   get '/registries' => 'static_pages#registries'
   get '/faq' => 'static_pages#faq'
 
+  get '/5' => 'anniversary#five'
+
   get '/admin' => 'admin#index'
   post '/send_invitations' => 'admin#send_invitations', as: "send_invitations"
   post '/send_reminders' => 'admin#send_reminders', as: "send_reminders"
